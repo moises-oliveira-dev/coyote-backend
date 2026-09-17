@@ -7,5 +7,6 @@ routerUsers.get("/", UserController.getAllUsers);
 routerUsers.get('/:id', UserController.getUserbyId);
 routerUsers.post('/', UserController.createUser);
 routerUsers.put('/:id', UserController.UpdateUser);
+routerUsers.delete('/:id', UserController.UpdateUser);
 
 export default routerUsers;

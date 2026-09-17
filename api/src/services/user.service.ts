@@ -1,4 +1,5 @@
 import users from "../mocks/user.mock.ts";
+import routerUsers from "../routes/user.route.ts";
 import type { User, CreateUser, UpdateUser } from "../types/user.type.ts";
 
 export function findAllUsers(): User[]{
@@ -46,3 +47,22 @@ export function modifyUser(id: number, {
 
   return user;
 } 
+
+export function removeUser(id: number){
+  function findIndex() {
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].id === id) {
+        return users[i].id
+      }
+    }
+
+    return -1;
+  };
+
+  const index = findIndex();
+
+  if (index  === -1)
+    throw new Error(`Usuário de if ${id} não encontrado.`);
+
+  users.slice( index, 1);
+}
