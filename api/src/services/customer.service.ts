@@ -1,12 +1,12 @@
 import prisma from '../lib/prisma.ts';
-import type { CreateCustomer } from '../schemas/customer.schema.ts';
-import type { Customer } from '../type/customer.type.ts';
+import type { CreateCustomer, UpdateCustomer } from '../schemas/customer.schema.ts';
+import type { Customer } from '../types/customer.type.ts';
 
 export async function findAllcustomers(): Promise<Customer[]> {
   return await prisma.customer.findMany({ orderBy: { createdAt: 'desc'} });
 }
 
-export async function findAllcustomerByid(id: number): Promise<Customer> {
+export async function findAllcustomerByid(id: number) {
   const customer = prisma.customer.findUnique({where: { id }});
 
   if (!customer) throw new Error('Cliente não encontrado');
@@ -18,7 +18,7 @@ export async function insertCustomer(datas:CreateCustomer):Promise<Customer> {
   return await prisma.customer.create({ data: datas });
 }
 
-export async function modifyCustomer(datas: UpdateCustomer): Promise<Customer> {
+export async function modifyCustomer(id: number, datas: UpdateCustomer): Promise<Customer> {
   await findAllcustomerByid(id);
 
   const customer = await prisma.customer.update({

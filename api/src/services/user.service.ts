@@ -1,68 +1,68 @@
-import users from "../mocks/user.mock.ts";
-import routerUsers from "../routes/user.route.ts";
-import type { User, CreateUser, UpdateUser } from "../types/user.type.ts";
+// import users from "../mocks/user.mock.ts";
+// import routerUsers from "../routes/user.route.ts";
+// import type { User, CreateUser, UpdateUser } from "../types/user.type.ts";
 
-export function findAllUsers(): User[]{
-  return users;
-}
+// export function findAllUsers(): User[]{
+//   return users;
+// }
 
-export function findUserById(id: number): User {
-  const user =  users.find((user) => user.id === id);
+// export function findUserById(id: number): User {
+//   const user =  users.find((user) => user.id === id);
 
-  if (!user)
-    throw new Error(`Usuário de id ${id} não encontrado.`);
+//   if (!user)
+//     throw new Error(`Usuário de id ${id} não encontrado.`);
     
-  return user;
-}
+//   return user;
+// }
 
-export function insertUser({
-  name,
-  email,
-  password
-}: CreateUser): User {
-  const user: User = {
-    id: users[users.length - 1].id + 1,
-    name,
-    email,
-    password
-  };
+// export function insertUser({
+//   name,
+//   email,
+//   password
+// }: CreateUser): User {
+//   const user: User = {
+//     id: users[users.length - 1].id + 1,
+//     name,
+//     email,
+//     password
+//   };
 
-  users[users.length] = user;
+//   users[users.length] = user;
 
-  return user;
-}
+//   return user;
+// }
 
-export function modifyUser(id: number, {
-  name,
-  email,
-  password
-}: UpdateUser): User {
-  const user = users.find(user => user.id === id);
+// export function modifyUser(id: number, {
+//   name,
+//   email,
+//   password
+// }: UpdateUser): User {
+//   const user = users.find(user => user.id === id);
 
-  if (!user)
-    throw new Error(`Usuário de if ${id} não encontrado.`);
-  if (name) user.name = name; 
-  if (email) user.email = email; 
-  if (password) user.password = password; 
+//   if (!user)
+//     throw new Error(`Usuário de if ${id} não encontrado.`);
+//   if (name) user.name = name; 
+//   if (email) user.email = email; 
+//   if (password) user.password = password; 
 
-  return user;
-} 
+//   return user;
+// } 
 
-export function removeUser(id: number){
-  function findIndex() {
-    for (let i = 0; i < users.length; i++) {
-      if (users[i].id === id) {
-        return users[i].id
-      }
-    }
+// export function removeUser(id: number){
+//   function findIndex() {
+//     for (let i = 0; i < users.length; i++) {
+//       if (users[i].id === id) {
+//         return users[i].id
+//       }
+//     }
 
-    return -1;
-  };
+//     return -1;
+//   };
 
-  const index = findIndex();
+//   const index = findIndex();
 
-  if (index  === -1)
-    throw new Error(`Usuário de if ${id} não encontrado.`);
+//   if (index  === -1)
+//     throw new Error(`Usuário de if ${id} não encontrado.`);
 
-  users.slice( index, 1);
-}
+//   users.slice( index, 1);
+// }

@@ -8,5 +8,5 @@ const createCustomerSchema = z.object({
 
 export const updateCustomerSchema = createCustomerSchema.partial();
 
-export type createCustomer = z.infer<typeof createCustomerSchema>;
-export type createCustomer = z.infer<typeof updateCustomerSchema>;
+export type CreateCustomer = z.infer<typeof createCustomerSchema>;
+export type UpdateCustomer = z.infer<typeof updateCustomerSchema>;
