@@ -1,10 +1,10 @@
 {
   "type": "module",
-  "scripts":{
+  "scripts": {
     "dev": "vite",
-    "check":"tsc"
+    "check": "tsc"
   },
-   "dependencies": {
+  "dependencies": {
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },

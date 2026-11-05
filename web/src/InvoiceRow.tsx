@@ -1,4 +1,4 @@
-import { Invoice } from './invoiceType.ts';
+import type { Invoice } from './invoiceType.ts';
 
 import { formatCurrency, formatDate, formatStatus } from './ultils.ts';
 
@@ -8,11 +8,13 @@ interface InvoiceRowProps {
 
 export default function InvoiceRow({ data }: InvoiceRowProps) {
   const { customer, amount, issueDate, dueDate, status } = data;
-  return <tr>
-    <td>{customer.name}</td>
-    <td>{formatCurrency(amount)}</td>
-    <td>{formatDate(issueDate)}</td>
-    <td>{formatDate(dueDate)}</td>
-    <td>{formatStatus(status)}</td>
-  </tr>;
+  return (
+    <tr>
+      <td>{customer.name}</td>
+      <td>{formatCurrency(amount)}</td>
+      <td>{formatDate(issueDate)}</td>
+      <td>{formatDate(dueDate)}</td>
+      <td>{formatStatus(status)}</td>
+    </tr>
+  );
 }
